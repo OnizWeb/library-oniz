@@ -1,0 +1,50 @@
+@import 'src/scss/mixin';
+@import 'src/scss/var';
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  background: $color-orange;
+  color: $color-font-white;
+  box-shadow: $box-shadow;
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    ul {
+      @include reset-list;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-right: 2rem;
+      li {
+        margin-left: 2rem;
+        a {
+          text-decoration: none;
+          color: $color-font-white;
+          &:hover {
+            text-decoration: underline;
+            color: $color-font-black;
+          }
+        }
+        &:last-child {
+          margin-right: 3rem;
+        }
+      }
+    }
+    .button-connection {
+      button {
+        margin-right: .5rem;
+        padding: .5rem;
+      }
+
+    }
+  }
+
+}
