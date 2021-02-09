@@ -1,50 +1,86 @@
 @import 'src/scss/mixin';
 @import 'src/scss/var';
 
-header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 2rem;
-  background: $color-orange;
+:host {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 1.6rem 3rem;
+  background: $color-red;
   color: $color-font-white;
   box-shadow: $box-shadow;
-  nav {
+  header {
+    position: relative;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
-
-    ul {
-      @include reset-list;
+    padding: 1.6rem 3rem;
+    @include mobile {
+      flex-wrap: wrap;
+    }
+    nav {
       display: flex;
       flex-direction: row;
-      justify-content: space-between;
+      justify-content: flex-start;
       align-items: center;
-      margin-right: 2rem;
-      li {
-        margin-left: 2rem;
-        a {
-          text-decoration: none;
-          color: $color-font-white;
-          &:hover {
-            text-decoration: underline;
-            color: $color-font-black;
+      z-index: 2;
+      // transition-duration: 400ms;
+      // transition-timing-function: cubic-bezier(.25, .8, .25, 1);
+      // transition-property: left;
+      &.mobile-menu {
+        display: none;
+      @include mobile {
+          display: flex;
+          background: $color-red;
+          width: 100%;
+          ul {
+            display: flex;
           }
         }
-        &:last-child {
-          margin-right: 3rem;
+      }
+      ul {
+        @include reset-list;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: 2rem;
+        @include mobile {
+            display: none;
+        }
+        li {
+          margin-left: 2rem;
+          a {
+            text-decoration: none;
+            color: $color-font-white;
+            font-size: 1.4rem;
+            font-weight: bold;
+            &:hover {
+              text-decoration: underline;
+              color: $color-font-black;
+            }
+          }
         }
       }
     }
     .button-connection {
-      button {
-        margin-right: .5rem;
-        padding: .5rem;
-      }
-
+        text-decoration: none;
+        color: $color-font-white;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        span {
+          margin-left: .5rem;
+          font-size: 1.4rem;
+          font-weight: bold;
+          @include mobile {
+            display: none;
+          }
+        }
     }
   }
-
 }
